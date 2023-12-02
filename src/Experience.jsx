@@ -3,10 +3,58 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { useGLTF } from '@react-three/drei'
 import { useRef } from 'react'
 import DataPoint from './DataPoint'
-import mock from './lib/data.json'
 
 extend({ OrbitControls })
 
+// [
+//     {
+//         "EEG 1": 3.039,
+//         "EEG 2": -0.332,
+//         "EEG 3": 2.581,
+//         "EEG 4": 0.432,
+//         "EEG 5": 4.066,
+//         "EEG 6": 0.83,
+//         "EEG 7": -2.499,
+//         "EEG 8": -3.685,
+//         "Accelerometer X": 0.031,
+//         "Accelerometer Y": 0.99,
+//         "Accelerometer Z": -0.247,
+//         "Gyroscope X": 0.031,
+//         "Gyroscope Y": 0.946,
+//         "Gyroscope Z": -0.092,
+//         "Battery Level": 100,
+//         "Counter": 63513,
+//         "Validation Indicator": 1
+//       },
+//       {
+//         "EEG 1": 2.545,
+//         "EEG 2": -1.698,
+//         "EEG 3": 2.346,
+//         "EEG 4": 2.165,
+//         "EEG 5": 5.005,
+//         "EEG 6": -4.899,
+//         "EEG 7": -2.484,
+//         "EEG 8": -5.628,
+//         "Accelerometer X": 0.03,
+//         "Accelerometer Y": 0.985,
+//         "Accelerometer Z": -0.249,
+//         "Gyroscope X": 0,
+//         "Gyroscope Y": 0.977,
+//         "Gyroscope Z": 0.031,
+//         "Battery Level": 100,
+//         "Counter": 63514,
+//         "Validation Indicator": 1
+//       },
+// ]
+
+function mapData(data) {
+
+    /**
+     * {
+     *  "EEG 1": [3.039, 2.545],
+     * }
+     */
+}
 export default function Experience() {
     const { camera, gl } = useThree()
     const { scene } = useGLTF('/head/scene.gltf')
@@ -56,10 +104,6 @@ export default function Experience() {
 
         {/* 8 */}
         <DataPoint position={[-0.23010960384011084, 2.792515450888679, -0.5820610256119391]} />
-        <mesh position-y={0} rotation-x={- Math.PI * 0.5} scale={10}>
-            <planeGeometry />
-            <meshStandardMaterial color="greenyellow" />
-        </mesh>
 
     </>
 }
