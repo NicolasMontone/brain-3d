@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 function App() {
     return (
-        <div>
+        <>
             <Canvas
                 camera={{
                     fov: 45,
@@ -21,7 +21,7 @@ function App() {
             >
                 <Experience />
             </Canvas>
-            <input
+            {/* <input
                 type="file"
                 accept=".csv,.xlsx,.xls"
                 onChange={(e) => {
@@ -38,8 +38,8 @@ function App() {
                         )
                     }
                 }}
-            />
-        </div>
+            /> */}
+        </>
     )
 }
 
