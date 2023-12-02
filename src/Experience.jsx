@@ -49,14 +49,8 @@ extend({ OrbitControls })
 
 function mapData(data) {
 
-    /**
-     * {
-     *  "EEG 1": [3.039, 2.545],
-     * }
-     */
 }
 export default function Experience({ data }) {
-    console.log(data)
     const { camera, gl } = useThree()
     const { scene } = useGLTF('/head/scene.gltf')
     const headRef = useRef(null)
@@ -68,7 +62,7 @@ export default function Experience({ data }) {
 
 
     return <>
-        <orbitControls args={[camera, gl.domElement]} />
+        {data && <orbitControls args={[camera, gl.domElement]} />}
 
         <directionalLight position={[1, 2, 3]} intensity={4.5} />
         <ambientLight intensity={1.5} />
