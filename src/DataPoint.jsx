@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const defaultColor = "hotpink";
 const hoverColor = "lightblue";
 
-const DataPoint = ({ position }) => {
+const DataPoint = ({ position, onClick }) => {
     const [hover, setHover] = useState(false);
 
     return (
@@ -12,6 +12,7 @@ const DataPoint = ({ position }) => {
             position={position}
             onPointerOver={() => setHover(true)} // Pointer enters the mesh
             onPointerOut={() => setHover(false)} // Pointer leaves the mesh
+            onClick={onClick}
         >
             <sphereGeometry args={[1, 16, 16]} scale={0.1} />
             <meshStandardMaterial color={hover ? hoverColor : defaultColor} />

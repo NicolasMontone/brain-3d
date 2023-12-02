@@ -6,14 +6,19 @@ import Papa from 'papaparse'
 import { useState } from 'react'
 import { Toaster, toast } from 'sonner'
 
+import Chart from './Chart.jsx'
+
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 function App() {
     const [data, setData] = useState(null);
-
+    const [dataPoint, setDataPoint] = useState()
     return (
         <>
-            <Toaster />
+        <Toaster />
+            {dataPoint !== undefined && <div>
+                <button onClick={() => setDataPoint()}> x </button>
+                <Chart n={dataPoint} data={data}/></div>}
             <Canvas
                 camera={{
                     fov: 45,
@@ -24,7 +29,8 @@ function App() {
                 }}
                 style={{ background: "black" }}
             >
-                <Experience data={data} />
+
+                <Experience setDataPoint={setDataPoint}data={data}   />
             </Canvas>
             <label
                 htmlFor="file-input"
