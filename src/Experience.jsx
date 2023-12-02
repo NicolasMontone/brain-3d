@@ -55,7 +55,8 @@ function mapData(data) {
      * }
      */
 }
-export default function Experience() {
+export default function Experience({ data }) {
+    console.log(data)
     const { camera, gl } = useThree()
     const { scene } = useGLTF('/head/scene.gltf')
     const headRef = useRef(null)
