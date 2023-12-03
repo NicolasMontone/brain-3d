@@ -30,7 +30,7 @@ function App() {
                 style={{ background: "black" }}
             >
 
-                <Experience setDataPoint={setDataPoint}data={data}   />
+                <Experience setDataPoint={setDataPoint}data={data} dataPoint={dataPoint}  />
             </Canvas>
             <label
                 htmlFor="file-input"

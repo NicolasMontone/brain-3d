@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 // Define the colors
 const defaultColor = "hotpink";
 const hoverColor = "lightblue";
 
-const DataPoint = ({ position, onClick }) => {
+const DataPoint = ({ position, onClick, active }) => {
     const [hover, setHover] = useState(false);
 
     return (
@@ -15,9 +15,9 @@ const DataPoint = ({ position, onClick }) => {
             onClick={onClick}
         >
             <sphereGeometry args={[1, 16, 16]} scale={0.1} />
-            <meshStandardMaterial color={hover ? hoverColor : defaultColor} />
+            <meshStandardMaterial color={active ? 'lime' : hover ? hoverColor : defaultColor} />
         </mesh>
     );
 };
 
-export default DataPoint;
+export default memo(DataPoint);
