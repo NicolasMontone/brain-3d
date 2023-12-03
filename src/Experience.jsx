@@ -1,4 +1,4 @@
-import { useThree, extend } from '@react-three/fiber'
+import { useThree, extend, useFrame } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { useRef, memo } from 'react'
 import DataPoint from './DataPoint'
@@ -10,10 +10,11 @@ export default memo(function Experience({ setDataPoint, data, dataPoint }) {
     const { camera, gl } = useThree()
     const headRef = useRef(null)
 
-    useThree(({ camera }) => {
-        if (!headRef.current) return
-        camera.lookAt(headRef.current.position)
-    })
+    // useFrame(({ camera }) => {
+    //     if (!headRef.current) return
+    //     camera.lookAt(headRef.current.position)
+    //     console.log(camera.position);
+    // })
 
 
     return <>

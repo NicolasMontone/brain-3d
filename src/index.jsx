@@ -15,22 +15,26 @@ function App() {
     const [dataPoint, setDataPoint] = useState()
     return (
         <>
-        <Toaster />
+            <Toaster />
             {dataPoint !== undefined && <div>
                 <button onClick={() => setDataPoint()}> x </button>
-                <Chart n={dataPoint} data={data}/></div>}
+                <Chart n={dataPoint} data={data} /></div>}
             <Canvas
                 camera={{
                     fov: 45,
                     near: 0.1,
                     far: 200,
-                    position: [2, 10, -3],
+                    position: [
+                        -8.28084032273374,
+                        8.98459490968886,
+                        13.088868742556407
+                    ],
 
                 }}
                 style={{ background: "black" }}
             >
 
-                <Experience setDataPoint={setDataPoint}data={data} dataPoint={dataPoint}  />
+                <Experience setDataPoint={setDataPoint} data={data} dataPoint={dataPoint} />
             </Canvas>
             <label
                 htmlFor="file-input"
