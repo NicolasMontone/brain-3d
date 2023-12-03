@@ -1,14 +1,13 @@
 import { useThree, extend } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { useGLTF } from '@react-three/drei'
 import { useRef, memo } from 'react'
 import DataPoint from './DataPoint'
+import Head from './Head'
 
 extend({ OrbitControls })
 
 export default memo(function Experience({ setDataPoint, data, dataPoint }) {
     const { camera, gl } = useThree()
-    const { scene } = useGLTF('/head/scene.gltf')
     const headRef = useRef(null)
 
     useThree(({ camera }) => {
@@ -23,13 +22,7 @@ export default memo(function Experience({ setDataPoint, data, dataPoint }) {
         <directionalLight position={[1, 2, 3]} intensity={4.5} />
         <ambientLight intensity={1.5} />
 
-
-        <mesh
-            ref={headRef} position-y={-14} scale={10}>
-
-            <primitive object={scene} scale={1} />
-        </mesh>
-
+        <Head headRef={headRef} data={data} dataPoint={dataPoint} setDataPoint={setDataPoint} />
         <DataPoint active={dataPoint === 1} onClick={() => setDataPoint(1)} position={[-0.38108665018800564, 3.6207941635511816, 0.882234151962892]} />
 
         {/* 2 */}
